@@ -1,5 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import ContactBook from "@/views/ContactBook.vue";
+// import { c } from "vite/dist/node/moduleRunnerTransport.d-CXw_Ws6P";
 const routes = [
   {
     path: "/",
@@ -10,6 +11,17 @@ const routes = [
     path: "/:pathMatch(.*)*",
     name: "notfound",
     component: () => import("@/views/NotFound.vue"),
+  },
+  {
+    path: "/contacts/:id",
+    name: "contact.edit",
+    component: () => import("@/views/ContactEdit.vue"),
+    props: true,
+  },
+  {
+    path: "/contacts",
+    name: "contact.add",
+    component: () => import("@/views/ContactAdd.vue"),
   },
 ];
 const router = createRouter({
